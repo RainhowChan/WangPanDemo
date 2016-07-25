@@ -33,13 +33,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <center>
     <div class="loginDiv" align="left">
-   	<h3>用户登录</h3>
-    <form action="${pageContext.request.contextPath }/login" method="post" id="form1">
-    		账号：<input type="text" name="id" onblur="checkInputName(this.value)"><br><br>
+   	<h3>用户注册</h3>
+    <form action="${pageContext.request.contextPath }/regiest" method="post" id="form1">
+    		昵称：<input type="text" name="username" onblur="checkInputName(this.value)"><br><br>
     		密码：<input type="password" name="password" onblur="checkInputPassword(this.value)"><br><br>
-    		<input type="button" value="登录" onclick="onSubmit()">&nbsp;&nbsp;&nbsp;<input type="reset" value="重置">	
+    		性别：<input type="radio" name="gender" value="0" checked="checked">男<input type="radio" name="gender" value="1">女<br><br>
+    		出生日期：<input type="text" name="birthdate" class="laydate-icon" onclick="laydate()" readonly="readonly"><br><br>
+    		描述：<textarea rows="5" cols="50" name="desc"></textarea><br><br>
+    		<input type="button" value="注册" onclick="onSubmit()">&nbsp;&nbsp;&nbsp;<input type="reset" value="重置">	
     	</form>
-    	<a href="${pageContext.request.contextPath }/regist.jsp">注册</a>
     </div>
     	
     </center>
@@ -48,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	var flag=false;
   	function checkInputName(name){
   		if(name.length<2){
-  			alert("账号不能少于2位");
+  			alert("昵称不能少于2位");
   			name="";
   			flag=false;
   		}else{

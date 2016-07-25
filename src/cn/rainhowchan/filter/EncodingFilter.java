@@ -26,12 +26,16 @@ public class EncodingFilter implements Filter{
 		HttpServletRequest request=(HttpServletRequest)servletRequest;
 		HttpServletResponse response=(HttpServletResponse)servletResponse;
 		
-		HttpServletRequest myRequest=new MyRequest(request);
-		if(request.getMethod().equalsIgnoreCase("GET"))//get«Î«Û
-			response.setContentType("text/html;charset="+encoding);
+		response.setContentType("text/html;charset="+encoding);
+		
+		if(request.getMethod().equalsIgnoreCase("GET")){//get«Î«Û
+			if(!(request instanceof MyRequest))
+				request=new MyRequest(request,encoding);
+		}
 		else//post«Î«Û
 			request.setCharacterEncoding(encoding);
-		chain.doFilter(myRequest, response);
+		chain.doFilter(request, response);
+		
 	}
 
 	@Override

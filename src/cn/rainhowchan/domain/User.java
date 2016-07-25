@@ -57,7 +57,4 @@ public class User {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	
-	
-	
 }

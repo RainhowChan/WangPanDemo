@@ -12,17 +12,19 @@ import cn.rainhowchan.domain.User;
 import cn.rainhowchan.servcie.UserService;
 import cn.rainhowchan.utils.CommonUtils;
 
-public class LoginServlet extends HttpServlet {
+public class RegiestServlet extends HttpServlet {
 
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-	
+		User user = CommonUtils.conventToBean(request.getParameterMap(), User.class);
+		System.out.println(user);
 		UserService service = new UserService();
 		try {
-			service.userLogin(request.getParameter("id"),request.getParameter("password"));
-			response.sendRedirect(request.getContextPath()+"/wangpan.jsp");
+			service.insertUser(user);
+			response.getWriter().write("注册成功！两秒后跳转到登录界面");
 		} catch (Exception e) {
 			response.getWriter().write(e.getMessage());
 		}
@@ -32,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request,response);
+		doGet(request,response);	
 	}
 
 }
