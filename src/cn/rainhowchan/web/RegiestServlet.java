@@ -17,8 +17,8 @@ public class RegiestServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
+//		request.setCharacterEncoding("utf-8");
+//		response.setContentType("text/html;charset=utf-8");
 		User user = CommonUtils.conventToBean(request.getParameterMap(), User.class);
 		System.out.println(user);
 		UserService service = new UserService();

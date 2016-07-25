@@ -2,14 +2,14 @@ package cn.rainhowchan.servcie;
 
 import java.sql.SQLException;
 
-import cn.rainhowchan.dao.DbDao;
+import cn.rainhowchan.dao.UserDao;
 import cn.rainhowchan.domain.User;
 
 public class UserService {
-	private DbDao dao;
+	private UserDao dao;
 	
 	public UserService(){
-		dao=new DbDao();
+		dao=new UserDao();
 	}
 	
 	public User userLogin(String username,String password) throws Exception{
