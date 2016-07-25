@@ -25,10 +25,13 @@ public class EncodingFilter implements Filter{
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request=(HttpServletRequest)servletRequest;
 		HttpServletResponse response=(HttpServletResponse)servletResponse;
-		HttpServletRequest myRequest=new MyRequest(request);
-		response.setContentType("text/html;charset="+encoding);
-		chain.doFilter(myRequest, response);
 		
+		HttpServletRequest myRequest=new MyRequest(request);
+		if(request.getMethod().equalsIgnoreCase("GET"))//get«Î«Û
+			response.setContentType("text/html;charset="+encoding);
+		else//post«Î«Û
+			request.setCharacterEncoding(encoding);
+		chain.doFilter(myRequest, response);
 	}
 
 	@Override
