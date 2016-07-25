@@ -18,10 +18,7 @@ public class EncodingFilter implements Filter{
 	private String encoding;
 
 	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void destroy() {}
 
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
@@ -30,14 +27,13 @@ public class EncodingFilter implements Filter{
 		HttpServletResponse response=(HttpServletResponse)servletResponse;
 		HttpServletRequest myRequest=new MyRequest(request);
 		response.setContentType("text/html;charset="+encoding);
-		
+		chain.doFilter(myRequest, response);
 		
 	}
 
 	@Override
 	public void init(FilterConfig config) throws ServletException {
 		this.encoding = config.getInitParameter("encoding");
-		
 	}
 
 }
