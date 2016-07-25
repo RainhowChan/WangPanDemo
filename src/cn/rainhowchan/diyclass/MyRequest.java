@@ -10,10 +10,12 @@ public class MyRequest extends HttpServletRequestWrapper {
 
 	private HttpServletRequest request;
 	private boolean flag=true;
+	private String encoding;
 
-	public MyRequest(HttpServletRequest request) {
+	public MyRequest(HttpServletRequest request, String encoding) {
 		super(request);
 		this.request=request;
+		this.encoding=encoding;
 	}
 
 	@Override
@@ -36,7 +38,7 @@ public class MyRequest extends HttpServletRequestWrapper {
 				String[] values=map.get(key);
 				for (int i = 0; i < values.length; i++) {
 					try {
-						values[i]=new String(values[i].getBytes("iso8859-1"),"utf-8");
+						values[i]=new String(values[i].getBytes("iso8859-1"),encoding);
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}

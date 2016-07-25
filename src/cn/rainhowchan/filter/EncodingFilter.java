@@ -18,26 +18,29 @@ public class EncodingFilter implements Filter{
 	private String encoding;
 
 	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void destroy() {}
 
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request=(HttpServletRequest)servletRequest;
 		HttpServletResponse response=(HttpServletResponse)servletResponse;
-		HttpServletRequest myRequest=new MyRequest(request);
+		
 		response.setContentType("text/html;charset="+encoding);
 		
+		if(request.getMethod().equalsIgnoreCase("GET")){//get«Î«Û
+			if(!(request instanceof MyRequest))
+				request=new MyRequest(request,encoding);
+		}
+		else//post«Î«Û
+			request.setCharacterEncoding(encoding);
+		chain.doFilter(request, response);
 		
 	}
 
 	@Override
 	public void init(FilterConfig config) throws ServletException {
 		this.encoding = config.getInitParameter("encoding");
-		
 	}
 
 }
