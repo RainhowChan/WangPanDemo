@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 		UserService service = new UserService();
 		try {
 			service.userLogin(request.getParameter("id"),request.getParameter("password"));
-			response.sendRedirect(request.getContextPath()+"/wangpan.jsp");
+			response.sendRedirect(request.getContextPath()+"/dataSearchServlet");
 		} catch (Exception e) {
 			response.getWriter().write(e.getMessage());
 		}

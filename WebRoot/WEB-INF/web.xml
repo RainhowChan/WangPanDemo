@@ -5,7 +5,7 @@
 	version="3.0">
 	<display-name>WanPanDemo</display-name>
 	
-   <filter>
+   <!-- <filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>cn.rainhowchan.filter.EncodingFilter</filter-class>
 		<init-param>
@@ -16,7 +16,7 @@
 	<filter-mapping>
 		<filter-name>encodinigFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 
 	<servlet>
 		<description>JAX-RS Tools Generated - Do not modify</description>
@@ -36,6 +36,13 @@
     <servlet-name>RegiestServlet</servlet-name>
     <servlet-class>cn.rainhowchan.web.RegiestServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>dataSearchServlet</servlet-name>
+    <servlet-class>cn.rainhowchan.servcie.DataSearchServlet</servlet-class>
+  </servlet>
+
 
 
 	<servlet-mapping>
@@ -49,5 +56,9 @@
   <servlet-mapping>
     <servlet-name>RegiestServlet</servlet-name>
     <url-pattern>/regiest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>dataSearchServlet</servlet-name>
+    <url-pattern>/dataSearch</url-pattern>
   </servlet-mapping>
 </web-app>
