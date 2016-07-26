@@ -27,7 +27,6 @@ public class EncodingFilter implements Filter{
 		HttpServletResponse response=(HttpServletResponse)servletResponse;
 		
 		response.setContentType("text/html;charset="+encoding);
-//		System.out.println("=======");
 		if(request.getMethod().equalsIgnoreCase("GET")){//get«Î«Û
 			if(!(request instanceof MyRequest))
 				request=new MyRequest(request,encoding);

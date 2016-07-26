@@ -7,7 +7,6 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import cn.rainhowchan.domain.Resource;
-import cn.rainhowchan.utils.CommonUtils;
 import cn.rainhowchan.utils.DSUtils;
 
 public class DataDao {
