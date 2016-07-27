@@ -32,12 +32,11 @@ public class DataDao {
 		return runner.update(sql, uuidName);
 	}
 
-	public String searchResourceByUuidName(String uuidName) throws SQLException {
+	public Resource searchResourceByUuidName(String uuidName) throws SQLException {
 		String sql="select * from resources where uuidname=?";
 		QueryRunner runner = new QueryRunner(DSUtils.getDataSource());
-		Resource resource = runner.query(sql, new BeanHandler<Resource>(Resource.class),uuidName);
-		return resource.getSavepath()+"\\"+resource.getUuidname();
-		
+		return runner.query(sql, new BeanHandler<Resource>(Resource.class),uuidName);
+//		 return resource.getSavepath()+"\\"+resource.getRealname();
 	}
 	
 }

@@ -34,7 +34,8 @@
 	<c:if test="${resources.size()!=0 }">	
 		<div>
 			<table width="70%" border="1" id="table">
-				<tr><td></td>
+				<tr>
+					<td></td>
 					<td>文件名</td>
 					<td>保存位置</td>
 					<td>上传时间</td>
@@ -49,12 +50,11 @@
 						<td>${rs.uploadtime }</td>
 						<td>${rs.description }</td>
 						<td>
-							<a href="${pageContext.request.contextPath }/download?uuidname="${rs.uuidname }>下载</a>&nbsp;&nbsp; 
+							<a href="${pageContext.request.contextPath }/download?uuidname=${rs.uuidname }">下载</a>&nbsp;&nbsp; 
 							<a href="${pageContext.request.contextPath }/delete?uuidname=${rs.uuidname }">删除</a>
 						</td>
 					</tr>
 				</c:forEach>
-
 			</table>
 		</div>
 		<a href="${pageContext.servletContext.contextPath }/addFile.jsp">点击上传文件</a>

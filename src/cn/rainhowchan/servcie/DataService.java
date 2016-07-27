@@ -41,7 +41,7 @@ public class DataService {
 		
 	}
 
-	public String searchDataByUuidName(String uuidName) throws Exception {
+	public Resource searchDataByUuidName(String uuidName) throws Exception {
 		try {
 			return dataDao.searchResourceByUuidName(uuidName);
 		} catch (SQLException e) {

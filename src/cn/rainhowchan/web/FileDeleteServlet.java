@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.rainhowchan.domain.Resource;
 import cn.rainhowchan.servcie.DataService;
 
 public class FileDeleteServlet extends HttpServlet {
@@ -19,8 +20,9 @@ public class FileDeleteServlet extends HttpServlet {
 		String uuidName = request.getParameter("uuidname");
 		
 		try {
-			String path = service.searchDataByUuidName(uuidName);
-			System.out.println(path);
+			Resource resource = service.searchDataByUuidName(uuidName);
+			String path=resource.getSavepath()+"\\"+resource.getUuidname();
+//			System.out.println(path);
 			File file = new File(path);
 			if(file.exists())
 				file.delete();
