@@ -22,6 +22,15 @@ public class DataService {
 		}
 		
 	}
+
+	public void addNewFileInfo(Resource resource) throws Exception {
+		try {
+			dataDao.addNewFileInfo(resource);
+		} catch (SQLException e) {
+			throw new Exception("¥Ê»Î◊ ‘¥SQL¥ÌŒÛ£°");
+		}
+		
+	}
 	
 	
 }

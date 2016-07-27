@@ -45,6 +45,12 @@ public class Resource {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	@Override
+	public String toString() {
+		return "Resource [id=" + id + ", uuidname=" + uuidname + ", realname="
+				+ realname + ", savepath=" + savepath + ", uploadtime="
+				+ uploadtime + ", description=" + description + "]";
+	}
 	
 	
 }

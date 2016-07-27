@@ -22,8 +22,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript">
 		function addUploadCount(){
 			var div=document.getElementById("div");
-			if(div.childNodes.length<6)
-				div.innerHTML+="<div><input type='file' name='f'><button onclick='removeUploadCount(this)'>移除</button><div><br>";
+			if(div.childNodes.length<8)
+				div.innerHTML+="<br><hr><div><input type='file' name='f'><button onclick='removeUploadCount(this)'>移除</button><div><br>描述<textarea name='textarea'></textarea>";
 		}
 		function removeUploadCount(bt){
 			var div=document.getElementById("div");
@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <center>
     <button onclick="addUploadCount()">添加</button><br><br>
     	<form action="${pageContext.request.contextPath }/addFile" method="post" enctype="multipart/form-data">
-    		<input type="file" name="f"><br><br>
+    		<input type="file" name="f"><br><br>描述<textarea name='textarea'></textarea>
     		<div id="div"></div>
     		<input type="submit" value="上传">
     	</form>

@@ -25,8 +25,7 @@ public class DataSearchServlet extends HttpServlet {
 		try {
 			List<Resource> resources = service.searchDataByLimit(itemCount,currentPage);
 			request.setAttribute("resources", resources);
-			request.getRequestDispatcher("/wangpan.jsp").forward(request, response);
-			
+			request.getRequestDispatcher("/wangpan.jsp").forward(request, response);	
 		} catch (Exception e) {
 			response.getWriter().write(e.toString());
 		}
