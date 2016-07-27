@@ -18,8 +18,15 @@ public class DataSearchServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 //		response.setContentType("text/html");
+		
 		int itemCount=5;
+		String itemCountStr = request.getParameter("itemCount");
+		if(itemCountStr!=null)
+			itemCount=Integer.parseInt(itemCountStr);
 		int currentPage=1;
+		String currentPageStr = request.getParameter("currentPage");
+		if(currentPageStr!=null)
+			currentPage=Integer.parseInt(currentPageStr);
 		//从数据库中分页查出所有的数据
 		DataService service = new DataService();
 		try {

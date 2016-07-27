@@ -3,6 +3,7 @@ package cn.rainhowchan.web;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -46,7 +47,12 @@ public class FileAddServlet extends HttpServlet {
 						String uuidname=FileUploadUtils.getUUIDFileName(fileName);//得到编码后的文件名
 						File f = new File("d:\\temp",FileUploadUtils.getRandomSavePath(fileName));
 						if(!f.exists()) f.mkdirs();
-						IOUtils.copy(fileItem.getInputStream(),new FileOutputStream(new File(f,uuidname)));
+						InputStream is = fileItem.getInputStream();
+						FileOutputStream fos = new FileOutputStream(new File(f,uuidname));
+						IOUtils.copy(is,fos);
+						IOUtils.closeQuietly(is);
+						IOUtils.closeQuietly(fos);
+						
 						fileItem.delete();
 						
 						resource.setRealname(fileName);
