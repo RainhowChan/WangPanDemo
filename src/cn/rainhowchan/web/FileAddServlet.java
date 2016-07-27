@@ -59,7 +59,6 @@ public class FileAddServlet extends HttpServlet {
 						flag+=1;
 					}
 					
-					
 					if(flag==2){
 						flag=0;
 						DataService service = new DataService();
@@ -71,7 +70,7 @@ public class FileAddServlet extends HttpServlet {
 					}
 		
 				}
-				response.sendRedirect("/dataSearch");
+				response.sendRedirect(request.getContextPath()+"/dataSearch");
 			} catch (FileUploadException e) {
 				e.printStackTrace();
 			}

@@ -3,18 +3,12 @@ package cn.rainhowchan.domain;
 import java.util.Date;
 
 public class Resource {
-	private int id;
 	private String uuidname;
 	private String realname;
 	private String savepath;
 	private Date uploadtime;
 	private String description;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public String getUuidname() {
 		return uuidname;
 	}
@@ -47,10 +41,12 @@ public class Resource {
 	}
 	@Override
 	public String toString() {
-		return "Resource [id=" + id + ", uuidname=" + uuidname + ", realname="
-				+ realname + ", savepath=" + savepath + ", uploadtime="
-				+ uploadtime + ", description=" + description + "]";
+		return "Resource [uuidname=" + uuidname + ", realname=" + realname
+				+ ", savepath=" + savepath + ", uploadtime=" + uploadtime
+				+ ", description=" + description + "]";
 	}
+	
+	
 	
 	
 }

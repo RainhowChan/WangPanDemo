@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import cn.rainhowchan.domain.Resource;
@@ -19,10 +20,24 @@ public class DataDao {
 	}
 
 	public int addNewFileInfo(Resource resource) throws SQLException {
-		String sql="insert into resources values(?,?,?,?,?,?)";
+		String sql="insert into resources values(?,?,?,?,?)";
 		QueryRunner runner = new QueryRunner(DSUtils.getDataSource());
-		return runner.update(sql, 0,resource.getUuidname(),resource.getRealname(),
+		return runner.update(sql,resource.getUuidname(),resource.getRealname(),
 				resource.getSavepath(),null,resource.getDescription());
+	}
+
+	public int deleteResourceByUuidName(String uuidName) throws SQLException {
+		String sql="delete from resources where uuidname=?";
+		QueryRunner runner = new QueryRunner(DSUtils.getDataSource());
+		return runner.update(sql, uuidName);
+	}
+
+	public String searchResourceByUuidName(String uuidName) throws SQLException {
+		String sql="select * from resources where uuidname=?";
+		QueryRunner runner = new QueryRunner(DSUtils.getDataSource());
+		Resource resource = runner.query(sql, new BeanHandler<Resource>(Resource.class),uuidName);
+		return resource.getSavepath()+"\\"+resource.getUuidname();
+		
 	}
 	
 }

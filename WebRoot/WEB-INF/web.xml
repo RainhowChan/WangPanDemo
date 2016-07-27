@@ -52,6 +52,13 @@
     <servlet-name>FileDeleteServlet</servlet-name>
     <servlet-class>cn.rainhowchan.web.FileDeleteServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FileDownloadServlet</servlet-name>
+    <servlet-class>cn.rainhowchan.web.FileDownloadServlet</servlet-class>
+  </servlet>
+
 
 
   <servlet-mapping>
@@ -77,5 +84,9 @@
   <servlet-mapping>
     <servlet-name>FileDeleteServlet</servlet-name>
     <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileDownloadServlet</servlet-name>
+    <url-pattern>/download</url-pattern>
   </servlet-mapping>
 </web-app>

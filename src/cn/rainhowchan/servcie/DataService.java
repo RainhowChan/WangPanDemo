@@ -31,6 +31,24 @@ public class DataService {
 		}
 		
 	}
+
+	public int deleteResourceByUuidName(String uuidName) throws Exception {
+		try {
+			return dataDao.deleteResourceByUuidName(uuidName);
+		} catch (SQLException e) {
+			throw new Exception("删除资源SQL错误！");// TODO Auto-generated catch block
+		}
+		
+	}
+
+	public String searchDataByUuidName(String uuidName) throws Exception {
+		try {
+			return dataDao.searchResourceByUuidName(uuidName);
+		} catch (SQLException e) {
+			throw new Exception("查找删除资源SQL错误！");// TODO Auto-generated catch block
+		}
+		
+	}
 	
 	
 }

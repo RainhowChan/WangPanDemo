@@ -11,7 +11,7 @@ public class FileUploadUtils {
 	public static String getUUIDFileName(String fileName) {
 		int index = fileName.lastIndexOf(".");
 		if(index!=-1)
-			return UUID.randomUUID()+fileName.substring(index).replace("-", "");//文件名带有后缀的
+			return UUID.randomUUID().toString().replace("-", "")+fileName.substring(index);//文件名带有后缀的
 		else
 			return UUID.randomUUID().toString().replace("-", "");//文件名不带后缀的
 	}

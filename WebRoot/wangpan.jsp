@@ -43,14 +43,14 @@
 				</tr>
 				<c:forEach items="${resources }" var="rs">
 					<tr>
-						<td><input type="checkbox" name="ck" value="${rs.id }"><%-- <input type="hidden" value="${rs.uuidname }" name="uuid">< --%>/td>
+						<td><input type="checkbox" name="ck" value="${rs.uuidname }"></td>
 						<td>${rs.realname }</td>
 						<td>${rs.savepath }</td>
 						<td>${rs.uploadtime }</td>
 						<td>${rs.description }</td>
 						<td>
-							<a href="${pageContext.request.contextPath }/download=?"+${rs.id }>下载</a>&nbsp;&nbsp; 
-							<a href="${pageContext.request.contextPath }/delete=?" +${rs.id }>删除</a>
+							<a href="${pageContext.request.contextPath }/download?uuidname="${rs.uuidname }>下载</a>&nbsp;&nbsp; 
+							<a href="${pageContext.request.contextPath }/delete?uuidname=${rs.uuidname }">删除</a>
 						</td>
 					</tr>
 				</c:forEach>
